@@ -14,13 +14,13 @@ import exercise_5_4.visitor.PercentageVisitor;
 public class Client {
 
 	public static void main(String[] args0) throws Exception {
-		//¶ÁÈ¡Óï·¨ÎÄ¼ş
+		//è¯»å–è¯­æ³•æ–‡ä»¶
 		List<ParkingField> pfs = TextFileReader.constructParkingFields("d:\\example.txt");
 		
 		for (ParkingField pf : pfs) 
 			System.out.println(pf);
 		
-		//´´½¨³µ³¡
+		//åˆ›å»ºè½¦åœº
 		Map<Integer, Integer> lots = new HashMap<>();
 		lots.put(1, 10);
 		lots.put(2, 15);
@@ -32,12 +32,12 @@ public class Client {
 		ParkingField pfwc = new ParkingFieldWithCompany(pf, "HIT_CS");
 		pf.setParkingStrategy(new RandomParkingStrategy());
 
-		//ÔÚµ÷ÓÃparkingÖ®Ç°ÎªÃ¿¸öÍ£³µÎï¹¹ÔìÒßÇéµÇ¼ÇĞÅÏ¢ÖÁargsÖĞ
-		pf.parking("car", "HA001", 10, new String[]{"Zhang San"}); //²»Ö¸¶¨³µÎ»Í£³µ
+		//åœ¨è°ƒç”¨parkingä¹‹å‰ä¸ºæ¯ä¸ªåœè½¦ç‰©æ„é€ ç–«æƒ…ç™»è®°ä¿¡æ¯è‡³argsä¸­
+		pf.parking("car", "HA001", 10, new String[]{"Zhang San"}); //ä¸æŒ‡å®šè½¦ä½åœè½¦
 		pf.parking("motor", "HA002", 10, 2, new String[]{"Li Si"});
 		pf.parking("plane", "HA003", 10, 3, new String[]{"Beijing", "2020-04-01"});
 		pf.parking("car", "HA004", 10, 4, new String[]{"Wang Wu"});
-		pf.parking("motor", "HA005", 10, new String[]{"Zhao Liu"}); //²»Ö¸¶¨³µÎ»Í£³µ
+		pf.parking("motor", "HA005", 10, new String[]{"Zhao Liu"}); //ä¸æŒ‡å®šè½¦ä½åœè½¦
 		System.out.println(pf);
 		
 		double ratio = pf.accept(new PercentageVisitor());
@@ -47,5 +47,6 @@ public class Client {
 			String c = iterator.next();
 			System.out.println(c + " is now parked in the parking field");
 		}
+		//add something for check
 	}
 }
